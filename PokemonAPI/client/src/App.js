@@ -16,7 +16,7 @@ function App() {
       })
   }, []);  
   return (
-    <div className="App" style={{ width: "200px", margin: "auto" }}>
+    <div>
       <ul>
         {
           pokemon.map((pokemonObj, index)=>{
