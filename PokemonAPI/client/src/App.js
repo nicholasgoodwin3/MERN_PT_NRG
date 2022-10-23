@@ -1,22 +1,22 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
+import axios from "axios";
+
 
 function App() {
-  const [pokemon, setPokemon] = useState([]);
+  const [pokemon, setPokeApiData] = useState([]);
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=807&offset=0') //pulled from pokeAPI documentation
-      .then(response => {
-        return response.json()
+    axios
+      .get("https://pokeapi.co/api/v2/pokemon?limit=807&offset=0") //pulled from pokeapi
+      .then((response) => {
+        console.log(response.data.results);
+        setPokeApiData(response.data.results);
       })
-      .then(response => {
-        setPokemon(response.results)
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+      .catch((err) => console.log(err));
   }, []);  
   return (
     <div>
+      <h1>Pokemon List</h1>
       <ul>
         {
           pokemon.map((pokemonObj, index)=>{
