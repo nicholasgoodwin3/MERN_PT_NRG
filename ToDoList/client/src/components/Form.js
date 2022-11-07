@@ -12,7 +12,7 @@ const Form = (props) => {
         {
         content: todoText,
         markedDelete: false,
-        id: Math.floor(Math.random() * 100000).toString(),
+        id: Math.floor(Math.random() * 1000000).toString(),
         },
     ]);
     setTodoText("");
@@ -23,9 +23,8 @@ const Form = (props) => {
         <input
             value={todoText}
             onChange={(e) => setTodoText(e.target.value)}
-            type="text"
-        />
-            <button>Add</button>
+            type="text"/>
+            <button>Add Item</button>
         </form>
     </div>
     );
