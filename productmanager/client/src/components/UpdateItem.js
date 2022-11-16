@@ -19,7 +19,20 @@ useEffect(()=>{
         setDescription(res.data.description);
     })
 },[])
-return(//removed submit handler, throwing undefined error, not quite sure about it, removing it didnt destroy everything though
+
+const submitHandler = (e)=>{
+    e.preventDefailt();
+    axios.put('http://localhost:8000/api/products/${id}',{
+        title,
+        price,
+        description
+    })
+    .then((res)=>{
+        console.log(res);
+        console.log(res.data);
+    })
+}
+return(
     <form>
             <div className="form-fields">
                 <label>Title</label>
