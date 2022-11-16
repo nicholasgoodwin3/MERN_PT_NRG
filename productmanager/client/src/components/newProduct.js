@@ -2,7 +2,7 @@ import React, {} from "react";
 import {useState} from 'react';
 import axios from "axios";
 
-const newProduct = (props) => {
+const NewProduct = (props) => {
 const { productList, setProductList } = props; //from main
 const [title, setTitle] = useState("");
 const [price, setPrice] = useState("");
@@ -62,4 +62,4 @@ return (
         </form>
     </div>);
 };
-export default newProduct;
+export default NewProduct;

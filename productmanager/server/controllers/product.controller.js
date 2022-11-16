@@ -20,5 +20,20 @@ module.exports = {
             res.json(oneItem);
         })
         .catch((err) => console.log(err));
+    },
+    updateItem: (req,res)=>{
+        Product.findByIdAndUpdate({_id:req.params.id},
+            req.body,
+            {new:true,runValidators: true})
+            .then((pushItem)=>{
+                res.json(pushItem);
+            })
+    },
+    deleteItem: (req,res)=> {
+        Product.deleteOne({_id: req.params.id})
+        .then((destroyItem)=>{
+            console.log(destroyItem);
+            res.json(destroyItem);
+        })
     }
-};
+};//reminder that _id is only for specific database fields//

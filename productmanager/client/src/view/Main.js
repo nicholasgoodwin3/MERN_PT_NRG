@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import newProduct from "../components/newProduct";
-import showAll from "../components/showAll";
+import newProduct from "../components/NewProduct";
+import showAll from "../components/ShowAll";
 
 const Main = (props) => {
     const [productList, setProductList] = useState([]);
