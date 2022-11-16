@@ -12,7 +12,7 @@ const showAll = (props) => {
                 
             })
             .catch((err) => console.log(err));
-    }, [id]);
+    }, []);
     return (
     <div>
         {
