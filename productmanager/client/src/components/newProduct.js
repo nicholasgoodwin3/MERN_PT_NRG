@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, {} from "react";
+import {useState} from 'react';
 import axios from "axios";
 
 const newProduct = (props) => {
+const { productList, setProductList } = props; //from main
 const [title, setTitle] = useState("");
 const [price, setPrice] = useState("");
 const [description, setDescription] = useState("");
@@ -11,11 +13,11 @@ const submitHandler = (e)=>{
     axios.post("http://localhost:8000/api/products",{
     title,
     price, 
-description
-    })
+    description})
     .then((res)=>{
 console.log(res);
 console.log(res.data); //used to clear form on reset
+setProductList([...productList, res.data]); //pulled from main
     setTitle("");
     setPrice("");
     setDescription("");

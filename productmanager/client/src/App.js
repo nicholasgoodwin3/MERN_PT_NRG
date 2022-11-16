@@ -1,10 +1,18 @@
 import "./App.css";
-import CreateProduct from "./components/newProduct";
+import newProduct from "./components/newProduct"; //unused error? find out why this presents.
+import Main from "./view/Main"; //multi imports for different views
+import { BrowserRouter, Routes, Route } from "react-router-dom"; //routes
+
 function App() {
-    return (
+  return (
+    <BrowserRouter>
         <div className="App">
-        <CreateProduct path="/"/>
+            <Routes>
+                <Route path="/" element={<Main/>} />
+                <Route path="/product/:id" element={<showProduct/>}/> 
+            </Routes>
         </div>
-    );
+    </BrowserRouter>
+);
 }
 export default App;
